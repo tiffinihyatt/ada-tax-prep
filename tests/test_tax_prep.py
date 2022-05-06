@@ -133,7 +133,7 @@ def few_valid_deductions():
         "charity": 5000,
         "mortgage": 5000,
         "child": 5000
-    }  
+    }
 
 @pytest.fixture
 def new_valid_deductions():
@@ -143,8 +143,9 @@ def new_valid_deductions():
         "child": 5000,
         "tuition": 5000,
         "healthcare": 5000,
+        "home office": 5000,
         "sales tax": 5000
-    }  
+    }
 
 def test_deducted_income_cannot_fall_below_zero():
     income = 10000
@@ -179,7 +180,7 @@ def test_applies_new_itemized_deductions(new_valid_deductions):
 
     deducted_income = calculate_deducted_income_2020(income, new_valid_deductions)
 
-    assert deducted_income == 20000
+    assert deducted_income == 15000
 
 def test_calculate_adjusted_income_tax_burden(all_valid_deductions):
     income = 50000
